@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace SortingAlphabetical
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Person> citizens = new List<Person>(5);  // Creating List Of Person having size 5;  
+                                                          //Adding Persons in List
+            citizens.Add(new Person("Mark", "Zuker", "Silicon Valley United States", 50));
+            citizens.Add(new Person("Bill ", "Gates", "Silicon Valley United States", 70));
+            citizens.Add(new Person("Jeff", "Bezoz", "Silicon Valley United States", 40));
+            citizens.Add(new Person("Elon", "Musk", "Silicon Valley United States", 20));
+            citizens.Add(new Person("Antony", "Gates", "Silicon Valley United States", 30));
+
+            Console.WriteLine(":::::::::::::::::::::::::::::::Before Sorting ::::::::::::::::::::::::");
+            // Prinring The List Names...
+            foreach (Person p in citizens)
+            { // Loop through List with foreach
+                Console.WriteLine(p.Name);
+            }
+            Console.WriteLine(":::::::::::::::::::::::::::::::After Sorting :::::::::::::::::");
+            // Problem #  Sort List of Citizens According to Citizen Names orderby-alphabetical-order
+            citizens.Sort((x, y) => string.Compare(x.Name, y.Name));
+            foreach (Person p in citizens)         // Prniting After alphabetical Sort.
+            { // Loop through List with foreach
+                Console.WriteLine(p.Name);
+            }
+            Console.ReadKey();    // to Stay On Screen.
+        }
+    }
+    class Person
+    {
+        public String Name;
+        public String LastName;
+        public String Address;
+        public int age;
+        public Person(String Name, String LastName, String Address, int Age)
+        {
+            this.Name = Name;
+            this.LastName = LastName;
+            this.Address = Address;
+            this.age = Age;
+        }
+    }
+
+
+
+}
